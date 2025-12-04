@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบสร้างกลุ่ม Audience | Global Standard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="audience-builder-app">
+        <header class="app-header">
+            <h1>ระบบสร้างกลุ่ม Audience</h1>
+            <div class="summary-stats">
+                <span class="stat-item">จำนวนลูกค้าทั้งหมด: <strong id="total-customers">7,100,000</strong></span>
+                <span class="stat-item">จำนวน Broadcast: <strong id="broadcast-count">507,143</strong></span>
+            </div>
+        </header>
+
+        <main class="app-main-content">
+            
+            <section class="card segment-allocation">
+                <h2>จัดส่วนลูกค้า</h2>
+                <div class="segment-table-wrapper">
+                    <table class="segment-table">
+                        <thead>
+                            <tr>
+                                <th>กลุ่มลูกค้า</th>
+                                <th class="input-col">%</th>
+                                <th class="amount-col">Amount (Users)</th>
+                                <th>Note</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="default-segment">
+                                <td>All Active Users</td>
+                                <td>100% default</td>
+                                <td>-</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>High Spenders (VIP)</td>
+                                <td><input type="number" value="10" min="0" max="100"> %</td>
+                                <td><span id="amount-vip">10,000</span></td>
+                                <td>RFM 1, 2, ซื้อ>9 ใบ ....</td>
+                            </tr>
+                            <tr>
+                                <td>New Users (Last 7 Days)</td>
+                                <td><input type="number" value="10" min="0" max="100"> %</td>
+                                <td><span id="amount-new-users">10,000</span></td>
+                                <td>แยกกลุ่มตาม RFM Score</td>
+                            </tr>
+                            <tr>
+                                <td>Customer high retention rate</td>
+                                <td><input type="number" value="70" min="0" max="100"> %</td>
+                                <td><span id="amount-retention">355,000</span></td>
+                                <td>RFM 7 8 9 10</td>
+                            </tr>
+                            <tr>
+                                <td>Churned Users (3 rounds no purchase)</td>
+                                <td><input type="number" value="10" min="0" max="100"> %</td>
+                                <td><span id="amount-churned">101,429</span></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="exclude-24h-option">
+                    <input type="checkbox" id="exclude-24h" checked>
+                    <label for="exclude-24h">Exclude users who purchased in last 24h (<span id="amount-exclude-24h">476,429</span>)</label>
+                </div>
+            </section>
+
+            <div class="criteria-container">
+                
+                <section class="card rule-group include-rules">
+                    <h3 class="include-header">➕ Include Criteria</h3>
+                    <div class="criteria-grid">
+                        <div class="col-behavior">
+                            <h4>Behavior</h4>
+                            <label><input type="checkbox" name="include_behavior" value="time"> ชอบซื้อตามช่วงเวลา</label>
+                            <label><input type="checkbox" name="include_behavior" value="set"> ชอบซื้อตามชุด</label>
+                            <label><input type="checkbox" name="include_behavior" value="pair"> ชอบซื้อตามคู่</label>
+                            <label><input type="checkbox" name="include_behavior" value="box"> ชอบซื้อกล่อง</label>
+                            <label><input type="checkbox" name="include_behavior" value="no-buy"> ไม่ชอบซื้อ....</label>
+                        </div>
+                        <div class="col-rfm">
+                            <h4>RFM</h4>
+                            <div class="rfm-range-input">
+                                <label for="include-rfm-start">RFM Score:</label>
+                                <input type="number" id="include-rfm-start" value="1" min="1" max="13"> - 
+                                <input type="number" id="include-rfm-end" value="13" min="1" max="13">
+                            </div>
+                        </div>
+                        <div class="col-campaign">
+                            <h4>Campaign/Event</h4>
+                            <label><input type="checkbox" name="include_campaign" value="returned"> กลับมา</label>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card rule-group exclude-rules">
+                    <h3 class="exclude-header">➖ Exclude Criteria</h3>
+                    <div class="criteria-grid">
+                         <div class="col-behavior">
+                            <h4>Behavior</h4>
+                            <label><input type="checkbox" name="exclude_behavior" value="time"> ชอบซื้อตามช่วงเวลา</label>
+                            <label><input type="checkbox" name="exclude_behavior" value="set"> ชอบซื้อตามชุด</label>
+                            <label><input type="checkbox" name="exclude_behavior" value="pair"> ชอบซื้อตามคู่</label>
+                            <label><input type="checkbox" name="exclude_behavior" value="box"> ชอบซื้อกล่อง</label>
+                            <label><input type="checkbox" name="exclude_behavior" value="no-buy"> ไม่ชอบซื้อ....</label>
+                        </div>
+                        <div class="col-rfm">
+                            <h4>RFM</h4>
+                            <div class="rfm-range-input">
+                                <label for="exclude-rfm-start">RFM Score:</label>
+                                <input type="number" id="exclude-rfm-start" value="1" min="1" max="13"> - 
+                                <input type="number" id="exclude-rfm-end" value="13" min="1" max="13">
+                            </div>
+                        </div>
+                        <div class="col-campaign">
+                            <h4>Campaign/Event</h4>
+                            <label><input type="checkbox" name="exclude_campaign" value="returned"> กลับมา</label>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <div class="audience-summary">
+                <p>ESTIMATED AUDIENCE SIZE</p>
+                <div class="audience-count">
+                    <span id="estimated-size">12,450</span>
+                    <span class="unit">Users</span>
+                </div>
+            </div>
+            <button id="save-broadcast-btn">💾 Save & Prepare Broadcast</button>
+        </footer>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
