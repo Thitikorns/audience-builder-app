@@ -1,0 +1,179 @@
+/* style.css */
+
+/* --- Base Styles & Layout --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.audience-builder-app {
+    width: 100%;
+    max-width: 1000px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 80px; /* เว้นที่ว่างสำหรับ footer */
+}
+
+/* --- Header & Summary Stats --- */
+.app-header {
+    padding: 20px;
+    border-bottom: 2px solid #eeeeee;
+}
+
+.app-header h1 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.summary-stats {
+    display: flex;
+    gap: 30px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* --- Segment Allocation Table --- */
+.segment-allocation, .criteria-section {
+    padding: 20px;
+}
+
+.segment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.segment-table th, .segment-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.segment-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.segment-table input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    text-align: right;
+}
+
+.exclude-24h-option {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #ffe0b2;
+    border-radius: 4px;
+}
+
+/* --- Criteria Section (Include/Exclude) --- */
+.criteria-section h3 {
+    color: #4CAF50;
+    margin-top: 20px;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 5px;
+}
+
+.exclude-rules h3 {
+    color: #f44336;
+}
+
+.criteria-table {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.criteria-table div {
+    flex: 1;
+}
+
+.criteria-table h4 {
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.exclude-rules .criteria-table h4 {
+    border-bottom: 2px solid #f44336;
+}
+
+.criteria-table label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+/* --- Footer (Sticky) --- */
+.app-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #e8e8e8;
+    border-top: 2px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20%; /* จัดตำแหน่งให้อยู่ตรงกลางตาม max-width */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.audience-summary {
+    text-align: center;
+}
+
+.audience-summary p {
+    margin: 0;
+    font-size: 0.8em;
+    color: #555;
+}
+
+.audience-count {
+    display: flex;
+    align-items: baseline;
+    color: #00A96B;
+}
+
+#estimated-size {
+    font-size: 2.5em;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.unit {
+    margin-left: 5px;
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+#save-broadcast-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#save-broadcast-btn:hover {
+    background-color: #0056b3;
+}
